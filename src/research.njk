@@ -1,0 +1,75 @@
+---
+layout: layouts/base.njk
+title: Research
+pageId: research
+permalink: /research/
+description: We actively do AI research, grounded in the software we build, and publish every experiment in our AI Research Diary.
+---
+<section class="page-hero wrap" aria-labelledby="page-title">
+  <div class="page-hero__panel kind-research vt-research">
+    <div class="page-hero__text">
+      <p class="overline">AI research</p>
+      <h1 class="page-hero__title" id="page-title">Research</h1>
+      <p class="page-hero__lede">We actively do AI research, grounded in the software we build. Each experiment is published as a dated record in our AI Research Diary, with its hypothesis, method, results and conclusions.</p>
+      <a class="btn btn--kind btn--l" href="{{ site.diaryUrl }}">{% icon "diary" %}<span>Read the research diary</span></a>
+    </div>
+    <div class="page-hero__art">{% cover "research", "page", "center" %}</div>
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="areas-title">
+  <div class="section__head">
+    <p class="overline">What we study</p>
+    <h2 class="section__title" id="areas-title">Our research areas</h2>
+  </div>
+  <ul class="areas">
+    <li class="area kind-agent-reliability">
+      <span class="badge badge--cookie" aria-hidden="true">{% icon "loop" %}</span>
+      <h3 class="area__title">Agent reliability</h3>
+      <p class="area__text">Agentic software development: AI agents that plan, build, review and verify software. We study how coding agents choose their evidence, test their hypotheses and recognise a system's boundaries.</p>
+      <a class="area__link" href="{{ site.diaryUrl }}projects/agent-reliability/"><span>Agent reliability in the diary</span>{% icon "arrow" %}</a>
+    </li>
+    <li class="area kind-program-source">
+      <span class="badge badge--sunny" aria-hidden="true">{% icon "document" %}</span>
+      <h3 class="area__title">Program source</h3>
+      <!-- OWNER: check the one-line description of Blueprint, Program and Stack -->
+      <p class="area__text">Source code into natural language. We keep AI-built software explainable through a project's Blueprint, Program and Stack, and test whether a readable Program can itself be the source AI builds working software from.</p>
+      <a class="area__link" href="{{ site.diaryUrl }}projects/program-source/"><span>Program source in the diary</span>{% icon "arrow" %}</a>
+    </li>
+    <li class="area kind-file-city">
+      <span class="badge badge--clover" aria-hidden="true">{% icon "city" %}</span>
+      <h3 class="area__title">File City</h3>
+      <p class="area__text">Source code as a 3D city. We rebuild a large software system from its implementation as a city you can explore, to make its structure understandable without reading the code.</p>
+      <a class="area__link" href="{{ site.diaryUrl }}projects/file-city/"><span>File City in the diary</span>{% icon "arrow" %}</a>
+    </li>
+    <li class="area kind-research">
+      <span class="badge badge--flower" aria-hidden="true">{% icon "route" %}</span>
+      <h3 class="area__title">People, bots and agent roles</h3>
+      <p class="area__text">Multi-agent collaboration and routing work between agent roles, and people and bots sharing one space, as they do in Mercbot.</p>
+      <a class="area__link" href="/mercbot/"><span>About Mercbot</span>{% icon "arrow" %}</a>
+    </li>
+  </ul>
+</section>
+
+<section class="section wrap" aria-labelledby="records-title">
+  {%- if diary.available %}
+  <div class="section__head section__head--row">
+    <div>
+      <p class="overline">From the diary</p>
+      <h2 class="section__title" id="records-title">Latest records</h2>
+    </div>
+    <a class="btn btn--tonal btn--m" href="{{ site.diaryUrl }}research/">{% icon "diary" %}<span>All records</span></a>
+  </div>
+  <ul class="entry-grid">
+    {%- for e in diary.entries %}
+    {% include "partials/entry-card.njk" %}
+    {%- endfor %}
+  </ul>
+  {%- else %}
+  <div class="diary-door kind-research">
+    <h2 class="section__title" id="records-title">Every experiment, on the record</h2>
+    <p>Our research is published as dated records in the AI Research Diary.</p>
+    <a class="btn btn--kind btn--l" href="{{ site.diaryUrl }}">{% icon "diary" %}<span>Read the research diary</span></a>
+  </div>
+  {%- endif %}
+</section>

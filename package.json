@@ -1,0 +1,24 @@
+{
+  "name": "mobilyenterprises-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Mobily Enterprises website: static pages built with Eleventy, with no JavaScript shipped.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.15"
+  },
+  "scripts": {
+    "build": "eleventy",
+    "check": "node tools/check.mjs && html-validate \"_site/**/*.html\"",
+    "check:external": "node tools/check.mjs --external",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.8",
+    "@material/material-color-utilities": "0.4.0",
+    "@resvg/resvg-js": "2.6.2",
+    "fontkit": "2.0.4",
+    "html-validate": "11.19.0",
+    "yaml": "2.9.1"
+  }
+}

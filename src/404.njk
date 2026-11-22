@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+title: Page not found
+pageId: not-found
+permalink: /404.html
+eleventyExcludeFromCollections: true
+description: This page doesn't exist on mobilyenterprises.com.
+---
+<section class="lost wrap" aria-labelledby="page-title">
+  <div class="lost__shape" aria-hidden="true"><span>404</span></div>
+  <h1 class="page-hero__title" id="page-title">Page not found</h1>
+  <p class="page-hero__lede">We couldn't find that page. It may have moved, or the link may be mistyped.</p>
+  <div class="btn-group" role="group" aria-label="Where to next">
+    <a class="btn btn--filled btn--m" href="/">{% icon "home" %}<span>Home</span></a>
+    <a class="btn btn--outlined btn--m" href="/research/">{% icon "flask" %}<span>Research</span></a>
+  </div>
+</section>

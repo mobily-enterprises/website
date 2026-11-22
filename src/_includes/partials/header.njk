@@ -1,0 +1,32 @@
+<header class="top-bar">
+  <div class="top-bar__inner wrap">
+    <a class="brand" href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>
+      <span class="brand__mark">{% logo "logo-header", 40 %}</span>
+      <span class="brand__name">Mobily <span class="brand__name-rest">Enterprises</span></span>
+    </a>
+    <nav class="nav-bar" aria-label="Main">
+      <ul class="connected-group">
+        {%- for item in site.nav %}
+        <li><a class="connected-group__item" href="{{ item.url }}"{% if page.url.startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    <a class="btn btn--filled btn--s top-bar__contact" href="/about/#contact">{% icon "mail" %}<span>Contact</span></a>
+    <button class="icon-btn icon-btn--tonal nav-toggle" type="button" popovertarget="menu" aria-label="Open the menu">{% icon "menu" %}</button>
+  </div>
+</header>
+<div class="nav-sheet" id="menu" popover="auto">
+  <div class="nav-sheet__head">
+    <span class="nav-sheet__title">Menu</span>
+    <button class="icon-btn nav-sheet__close" type="button" popovertarget="menu" popovertargetaction="hide" aria-label="Close the menu">{% icon "close" %}</button>
+  </div>
+  <nav aria-label="Menu">
+    <ul class="nav-sheet__list">
+      <li><a class="nav-sheet__item" href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>{% icon "home" %}<span>Home</span></a></li>
+      {%- for item in site.nav %}
+      <li><a class="nav-sheet__item" href="{{ item.url }}"{% if page.url.startsWith(item.url) %} aria-current="page"{% endif %}>{% icon item.icon %}<span>{{ item.label }}</span></a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+  <a class="btn btn--filled btn--m nav-sheet__contact" href="/about/#contact">{% icon "mail" %}<span>Contact us</span></a>
+</div>

@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+title: About and contact
+pageId: about
+permalink: /about/
+eleventyComputed:
+  description: "Mobily Enterprises is an Australian software company in {{ company.locality }}, {{ company.regionName }}, operated by {{ company.legalName }}. Contact us at {{ company.email }}."
+---
+<section class="page-hero wrap" aria-labelledby="page-title">
+  <div class="page-hero__panel page-hero__panel--brand">
+    <div class="page-hero__text">
+      <p class="overline">About</p>
+      <h1 class="page-hero__title" id="page-title">About us</h1>
+      <p class="page-hero__lede">Mobily Enterprises is an Australian software company, made in Perth, Western Australia. We make Vibe64, an AI coding editor, and Mercbot, a home for people and AI bots, and we do AI research.</p>
+    </div>
+    <div class="page-hero__art page-hero__art--logo" aria-hidden="true">{% logo "logo-about", 240 %}</div>
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="work-title">
+  <div class="section__head">
+    <p class="overline">How we work</p>
+    <h2 class="section__title" id="work-title">Open, curious and quiet</h2>
+  </div>
+  <ul class="features features--three">
+    <li class="feature">
+      <span class="badge badge--cookie" aria-hidden="true">{% icon "branch" %}</span>
+      <h3 class="feature__title">In the open</h3>
+      <p class="feature__text">The Vibe64 editor and a single-user Mercbot are open source, and our research is published in a public diary.</p>
+    </li>
+    <li class="feature">
+      <span class="badge badge--sunny" aria-hidden="true">{% icon "flask" %}</span>
+      <h3 class="feature__title">Research from real work</h3>
+      <p class="feature__text">Our research grows out of the software we build, and Vibe64 is where we test it.</p>
+    </li>
+    <li class="feature">
+      <span class="badge badge--clover" aria-hidden="true">{% icon "shield" %}</span>
+      <h3 class="feature__title">A quiet website</h3>
+      <p class="feature__text">This site sets no cookies, runs no analytics and ships no JavaScript.</p>
+    </li>
+  </ul>
+</section>
+
+<section class="section wrap" id="contact" aria-labelledby="contact-title">
+  <div class="contact">
+    <div class="contact__text">
+      <p class="overline">Contact</p>
+      <h2 class="section__title" id="contact-title">Get in touch</h2>
+      <p>Questions about Vibe64, Mercbot or our research? Write to us, or call.</p>
+      <div class="btn-group" role="group" aria-label="Contact">
+        <a class="btn btn--filled btn--l" href="mailto:{{ company.email }}">{% icon "mail" %}<span>{{ company.email }}</span></a>
+        <a class="btn btn--tonal btn--l" href="tel:{{ company.phoneLink }}">{% icon "chat" %}<span>{{ company.phone }}</span></a>
+      </div>
+    </div>
+    <dl class="company">
+      <div><dt>Trading name</dt><dd>{{ site.name }}</dd></div>
+      <div><dt>Operated by</dt><dd>{{ company.legalName }}</dd></div>
+      <div><dt>Based in</dt><dd>{{ company.locality }}, {{ company.regionName }}, Australia</dd></div>
+      <div><dt>ABN</dt><dd><a href="{{ company.abnUrl }}">{{ company.abn }}</a></dd></div>
+      <div><dt>ACN</dt><dd>{{ company.acn }}</dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:{{ company.phoneLink }}">{{ company.phone }}</a></dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:{{ company.email }}">{{ company.email }}</a></dd></div>
+      <div><dt>GitHub</dt><dd><a href="{{ site.github }}">github.com/mobily-enterprises</a></dd></div>
+    </dl>
+  </div>
+</section>

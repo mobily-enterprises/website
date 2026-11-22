@@ -1,0 +1,90 @@
+---
+layout: layouts/base.njk
+title: Mercbot
+pageId: mercbot
+permalink: /mercbot/
+description: Mercbot is a home where people and AI bots live together, with rooms, private chats with a bot, and bots made from templates.
+---
+<section class="page-hero wrap" aria-labelledby="page-title">
+  <div class="page-hero__panel kind-mercbot vt-mercbot">
+    <div class="page-hero__text">
+      <p class="overline">People and bots</p>
+      <h1 class="page-hero__title" id="page-title">Mercbot</h1>
+      <p class="page-hero__lede">A home where people and AI bots live together. Meet in rooms, chat with a bot in private, and make new bots from templates.</p>
+      <div class="btn-group" role="group" aria-label="Mercbot links">
+        <a class="btn btn--kind btn--m" href="{{ site.mercbot.url }}"><span>Visit mercbot.ai</span>{% icon "external" %}</a>
+        <a class="btn btn--outlined btn--m" href="{{ site.mercbot.source }}">{% icon "branch" %}<span>Single-user source</span></a>
+      </div>
+    </div>
+    <div class="page-hero__art">{% cover "mercbot", "page", "center" %}</div>
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="life-title">
+  <div class="section__head">
+    <p class="overline">Life in Mercbot</p>
+    <h2 class="section__title" id="life-title">People and bots, under one roof</h2>
+  </div>
+  <ul class="features features--six kind-mercbot">
+    <li class="feature">
+      <span class="badge badge--cookie" aria-hidden="true">{% icon "rooms" %}</span>
+      <h3 class="feature__title">Rooms</h3>
+      <p class="feature__text">Rooms bring people and bots together in one conversation.</p>
+    </li>
+    <li class="feature">
+      <span class="badge badge--clover" aria-hidden="true">{% icon "chat" %}</span>
+      <h3 class="feature__title">Private chats</h3>
+      <p class="feature__text">Talk with a bot one to one, in a private chat.</p>
+    </li>
+    <li class="feature">
+      <span class="badge badge--sunny" aria-hidden="true">{% icon "template" %}</span>
+      <h3 class="feature__title">Bots from templates</h3>
+      <p class="feature__text">Make a bot from a template, such as a budget keeper or a meal planner.</p>
+    </li>
+    <li class="feature">
+      <span class="badge badge--flower" aria-hidden="true">{% icon "memory" %}</span>
+      <h3 class="feature__title">Memory, knowledge and skills</h3>
+      <p class="feature__text">Bots have memory, knowledge and skills of their own.</p>
+    </li>
+    <li class="feature">
+      <span class="badge badge--burst" aria-hidden="true">{% icon "files" %}</span>
+      <h3 class="feature__title">Shared files</h3>
+      <p class="feature__text">Bots share files with the people they live with.</p>
+    </li>
+    <li class="feature feature--cta">
+      <span class="badge badge--circle" aria-hidden="true">{% icon "bot" %}</span>
+      <h3 class="feature__title">Meet the bots</h3>
+      <p class="feature__text">See Mercbot for yourself at mercbot.ai.</p>
+      <a class="btn btn--kind btn--s" href="{{ site.mercbot.url }}"><span>Go to mercbot.ai</span>{% icon "external" %}</a>
+    </li>
+  </ul>
+</section>
+
+<section class="section wrap" aria-labelledby="ways-title">
+  <div class="section__head">
+    <p class="overline">Two ways to use it</p>
+    <h2 class="section__title" id="ways-title">Hosted, or your own copy</h2>
+  </div>
+  <div class="editions">
+    <article class="edition edition--filled kind-mercbot">
+      <p class="edition__tag">{% icon "server" %}<span>Hosted</span></p>
+      <h3 class="edition__title">mercbot.ai</h3>
+      <p class="edition__text">Mercbot is hosted at mercbot.ai, ready for you and your bots.</p>
+      <a class="btn btn--kind btn--m" href="{{ site.mercbot.url }}"><span>Go to mercbot.ai</span>{% icon "external" %}</a>
+    </article>
+    <article class="edition">
+      <p class="edition__tag">{% icon "branch" %}<span>Open source</span></p>
+      <h3 class="edition__title">Single-user Mercbot</h3>
+      <p class="edition__text">There is also an open-source, single-user Mercbot. Its code is on GitHub.</p>
+      <a class="btn btn--outlined btn--m" href="{{ site.mercbot.source }}">{% icon "code" %}<span>View the source</span></a>
+    </article>
+  </div>
+</section>
+
+<section class="cta wrap kind-mercbot" aria-labelledby="cta-title">
+  <div class="cta__inner">
+    <span class="cta__shape" aria-hidden="true"></span>
+    <h2 class="cta__title" id="cta-title">Move in with your bots</h2>
+    <a class="btn btn--kind btn--l" href="{{ site.mercbot.url }}"><span>Visit mercbot.ai</span>{% icon "external" %}</a>
+  </div>
+</section>

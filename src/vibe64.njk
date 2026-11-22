@@ -1,0 +1,84 @@
+---
+layout: layouts/base.njk
+title: Vibe64
+pageId: vibe64
+permalink: /vibe64/
+description: Vibe64 is an AI coding editor. You work with AI agents in sessions, each with a live Preview, a plan with checklists and a Save to GitHub.
+---
+<section class="page-hero wrap" aria-labelledby="page-title">
+  <div class="page-hero__panel kind-vibe64 vt-vibe64">
+    <div class="page-hero__text">
+      <p class="overline">AI coding editor</p>
+      <h1 class="page-hero__title" id="page-title">Vibe64</h1>
+      <p class="page-hero__lede">An AI coding editor. You work with AI agents in sessions, and every session has a live Preview, a plan with checklists and a Save to GitHub.</p>
+      <div class="btn-group" role="group" aria-label="Vibe64 links">
+        <a class="btn btn--kind btn--m" href="{{ site.vibe64.url }}"><span>Visit vibe64.dev</span>{% icon "external" %}</a>
+        <a class="btn btn--outlined btn--m" href="{{ site.vibe64.source }}">{% icon "branch" %}<span>Editor source</span></a>
+      </div>
+    </div>
+    <div class="page-hero__art">{% cover "vibe64", "page", "center" %}</div>
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="session-title">
+  <div class="section__head">
+    <p class="overline">Inside a session</p>
+    <h2 class="section__title" id="session-title">Everything a session needs</h2>
+  </div>
+  <ul class="features kind-vibe64">
+    <li class="feature">
+      <span class="badge badge--cookie" aria-hidden="true">{% icon "spark" %}</span>
+      <h3 class="feature__title">Your AI agents</h3>
+      <p class="feature__text">Sessions are where you work with AI agents such as Claude Code, Codex and OpenCode.</p>
+    </li>
+    <li class="feature">
+      <span class="badge badge--clover" aria-hidden="true">{% icon "preview" %}</span>
+      <h3 class="feature__title">A live Preview</h3>
+      <p class="feature__text">Every session has a live Preview, so you can see the software while it is being built.</p>
+    </li>
+    <li class="feature">
+      <span class="badge badge--sunny" aria-hidden="true">{% icon "checklist" %}</span>
+      <h3 class="feature__title">Plans with checklists</h3>
+      <p class="feature__text">Each session's plan comes with checklists you can follow from the first step to the last.</p>
+    </li>
+    <li class="feature">
+      <span class="badge badge--flower" aria-hidden="true">{% icon "save" %}</span>
+      <h3 class="feature__title">Save to GitHub</h3>
+      <p class="feature__text">When the work is ready, Save puts it on GitHub.</p>
+    </li>
+  </ul>
+</section>
+
+<section class="section wrap" aria-labelledby="ways-title">
+  <div class="section__head">
+    <p class="overline">Two ways to use it</p>
+    <h2 class="section__title" id="ways-title">Open source, or hosted for you</h2>
+  </div>
+  <div class="editions">
+    <article class="edition">
+      <p class="edition__tag">{% icon "branch" %}<span>Open source</span></p>
+      <h3 class="edition__title">The Vibe64 editor</h3>
+      <p class="edition__text">The editor is open source. Its code is on GitHub for anyone to read and build on.</p>
+      <a class="btn btn--outlined btn--m" href="{{ site.vibe64.source }}">{% icon "code" %}<span>View the source</span></a>
+    </article>
+    <article class="edition edition--filled kind-vibe64">
+      <p class="edition__tag">{% icon "server" %}<span>Hosted</span></p>
+      <h3 class="edition__title">Vibe64 Online</h3>
+      <p class="edition__text">The hosted version at vibe64.dev: your own workspace on a managed server.</p>
+      <ul class="ticks">
+        <li>{% icon "server" %}<span>Your own workspace</span></li>
+        <li>{% icon "layers" %}<span>Publish to staging</span></li>
+        <li>{% icon "deploy" %}<span>Deploy to production</span></li>
+      </ul>
+      <a class="btn btn--kind btn--m" href="{{ site.vibe64.url }}"><span>Go to vibe64.dev</span>{% icon "external" %}</a>
+    </article>
+  </div>
+</section>
+
+<section class="cta wrap kind-vibe64" aria-labelledby="cta-title">
+  <div class="cta__inner">
+    <span class="cta__shape" aria-hidden="true"></span>
+    <h2 class="cta__title" id="cta-title">Build with your agents in Vibe64</h2>
+    <a class="btn btn--kind btn--l" href="{{ site.vibe64.url }}"><span>Visit vibe64.dev</span>{% icon "external" %}</a>
+  </div>
+</section>

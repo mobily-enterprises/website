@@ -1,0 +1,137 @@
+/* Base: Material 3 type scale and shape tokens, the font, and page foundations. */
+
+@font-face {
+  font-family: "Roboto Flex";
+  src: url("fonts/roboto-flex-latin.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+  font-style: oblique 0deg 10deg;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308,
+    U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* Material 3 shape scale, with the expressive large steps. */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-large-increased: 20px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-extra-large-increased: 32px;
+  --md-sys-shape-corner-extra-extra-large: 48px;
+  --md-sys-shape-corner-full: 9999px;
+
+  /* Material 3 type scale (size / line height / weight / tracking), emphasized weights alongside. */
+  --md-ref-typeface: "Roboto Flex", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --md-sys-typescale-display-large: 400 3.5625rem/4rem var(--md-ref-typeface);
+  --md-sys-typescale-display-medium: 400 2.8125rem/3.25rem var(--md-ref-typeface);
+  --md-sys-typescale-display-small: 400 2.25rem/2.75rem var(--md-ref-typeface);
+  --md-sys-typescale-headline-large: 400 2rem/2.5rem var(--md-ref-typeface);
+  --md-sys-typescale-headline-medium: 400 1.75rem/2.25rem var(--md-ref-typeface);
+  --md-sys-typescale-headline-small: 400 1.5rem/2rem var(--md-ref-typeface);
+  --md-sys-typescale-title-large: 400 1.375rem/1.75rem var(--md-ref-typeface);
+  --md-sys-typescale-title-medium: 500 1rem/1.5rem var(--md-ref-typeface);
+  --md-sys-typescale-title-small: 500 0.875rem/1.25rem var(--md-ref-typeface);
+  --md-sys-typescale-body-large: 400 1rem/1.5rem var(--md-ref-typeface);
+  --md-sys-typescale-body-medium: 400 0.875rem/1.25rem var(--md-ref-typeface);
+  --md-sys-typescale-body-small: 400 0.75rem/1rem var(--md-ref-typeface);
+  --md-sys-typescale-label-large: 500 0.875rem/1.25rem var(--md-ref-typeface);
+  --md-sys-typescale-label-medium: 500 0.75rem/1rem var(--md-ref-typeface);
+  --md-sys-typescale-label-small: 500 0.6875rem/1rem var(--md-ref-typeface);
+  --md-sys-typescale-emphasized-display: 600;
+  --md-sys-typescale-emphasized-headline: 600;
+  --md-sys-typescale-emphasized-title: 700;
+  --md-sys-typescale-emphasized-label: 700;
+  --md-sys-typescale-emphasized-body: 500;
+
+  /* Grade: dark text on light stays at 0; light text on dark is thinned a little, as M3 advises. */
+  --grade: 0;
+
+  /* Page gutters follow the M3 window size classes. */
+  --gutter: 16px;
+  --wrap: 1360px;
+  --section-gap: 72px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root { --grade: -25; }
+}
+
+@media (width >= 600px) { :root { --gutter: 24px; --section-gap: 96px; } }
+@media (width >= 840px) { :root { --gutter: 40px; --section-gap: 120px; } }
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 96px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font: var(--md-sys-typescale-body-large);
+  letter-spacing: 0.03125rem;
+  font-optical-sizing: auto;
+  font-variation-settings: "GRAD" var(--grade);
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+
+::selection {
+  background: var(--md-sys-color-tertiary-container);
+  color: var(--md-sys-color-on-tertiary-container);
+}
+
+:focus-visible {
+  outline: 3px solid var(--md-sys-color-secondary);
+  outline-offset: 3px;
+  border-radius: var(--md-sys-shape-corner-small);
+}
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--wrap));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 100;
+  top: 12px;
+  left: 12px;
+  padding: 12px 20px;
+  border-radius: var(--md-sys-shape-corner-full);
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font: var(--md-sys-typescale-label-large);
+  text-decoration: none;
+  translate: 0 -200%;
+}
+.skip-link:focus-visible { translate: 0 0; }
+
+.icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+.overline {
+  font: var(--md-sys-typescale-label-large);
+  font-weight: var(--md-sys-typescale-emphasized-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-sys-color-primary);
+}

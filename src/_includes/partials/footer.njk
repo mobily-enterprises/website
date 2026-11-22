@@ -1,0 +1,62 @@
+<aside class="oss wrap" aria-labelledby="oss-title">
+  <div class="oss__inner">
+    <span class="oss__badge" aria-hidden="true">{% icon "branch" %}</span>
+    <div class="oss__text">
+      <h2 class="oss__title" id="oss-title">Open source at heart</h2>
+      <p>The Vibe64 editor and a single-user Mercbot are open source. Read the code, follow the work, and build on it.</p>
+    </div>
+    <a class="btn btn--outlined btn--m oss__link" href="{{ site.github }}">{% icon "branch" %}<span>github.com/mobily-enterprises</span></a>
+  </div>
+</aside>
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="brand" href="/">
+        <span class="brand__mark">{% logo "logo-footer", 48 %}</span>
+        <span class="brand__name">Mobily <span class="brand__name-rest">Enterprises</span></span>
+      </a>
+      <p class="site-footer__tagline">{{ site.tagline }}</p>
+      <a class="site-footer__email" href="mailto:{{ company.email }}">{% icon "mail" %}<span>{{ company.email }}</span></a>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <div>
+        <h2 class="site-footer__heading">Products</h2>
+        <ul>
+          <li><a href="/vibe64/">Vibe64</a></li>
+          <li><a href="/mercbot/">Mercbot</a></li>
+          <li><a href="{{ site.vibe64.url }}">vibe64.dev</a></li>
+          <li><a href="{{ site.mercbot.url }}">mercbot.ai</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Company</h2>
+        <ul>
+          <li><a href="/research/">Research</a></li>
+          <li><a href="{{ site.diaryUrl }}">Research diary</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/about/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="site-footer__heading">Open source</h2>
+        <ul>
+          <li><a href="{{ site.vibe64.source }}">Vibe64 editor</a></li>
+          <li><a href="{{ site.mercbot.source }}">Mercbot</a></li>
+          <li><a href="{{ site.github }}">All our repositories</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="site-footer__company" itemscope itemtype="https://schema.org/Organization">
+      <link itemprop="url" href="{{ site.url }}/">
+      <link itemprop="logo" href="{{ site.url }}/apple-touch-icon.png">
+      <p><span itemprop="name">{{ site.name }}</span> is operated by <span itemprop="legalName">{{ company.legalName }}</span>, based in <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="addressLocality">{{ company.locality }}</span>, {{ company.regionName }}<meta itemprop="addressRegion" content="{{ company.region }}"><meta itemprop="addressCountry" content="{{ company.country }}"></span>, Australia.</p>
+      <p class="site-footer__ids">
+        <span>ABN <a href="{{ company.abnUrl }}"><span itemprop="taxID">{{ company.abn }}</span></a></span>
+        <span itemprop="identifier" itemscope itemtype="https://schema.org/PropertyValue"><meta itemprop="propertyID" content="ACN"><span>ACN <span itemprop="value">{{ company.acn }}</span></span></span>
+        <span><a href="tel:{{ company.phoneLink }}"><span itemprop="telephone">{{ company.phone }}</span></a></span>
+        <span><a href="mailto:{{ company.email }}"><span itemprop="email">{{ company.email }}</span></a></span>
+      </p>
+    </div>
+    <p class="site-footer__small">© {{ site.year }} {{ company.legalName }} · Made in Perth, Western Australia · No cookies, no tracking, no JavaScript.</p>
+  </div>
+</footer>
