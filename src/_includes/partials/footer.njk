@@ -46,15 +46,13 @@
         </ul>
       </div>
     </nav>
-    <div class="site-footer__company" itemscope itemtype="https://schema.org/Organization">
-      <link itemprop="url" href="{{ site.url }}/">
-      <link itemprop="logo" href="{{ site.url }}/apple-touch-icon.png">
-      <p><span itemprop="name">{{ site.name }}</span> is operated by <span itemprop="legalName">{{ company.legalName }}</span>, based in <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="addressLocality">{{ company.locality }}</span>, {{ company.regionName }}<meta itemprop="addressRegion" content="{{ company.region }}"><meta itemprop="addressCountry" content="{{ company.country }}"></span>, Australia.</p>
+    <div class="site-footer__company">
+      <p>{{ site.name }} is operated by {{ company.legalName }}, based in {{ company.locality }}, {{ company.regionName }}, Australia.</p>
       <p class="site-footer__ids">
-        <span>ABN <a href="{{ company.abnUrl }}"><span itemprop="taxID">{{ company.abn }}</span></a></span>
-        <span itemprop="identifier" itemscope itemtype="https://schema.org/PropertyValue"><meta itemprop="propertyID" content="ACN"><span>ACN <span itemprop="value">{{ company.acn }}</span></span></span>
-        <span><a href="tel:{{ company.phoneLink }}"><span itemprop="telephone">{{ company.phone }}</span></a></span>
-        <span><a href="mailto:{{ company.email }}"><span itemprop="email">{{ company.email }}</span></a></span>
+        <span>ABN <a href="{{ company.abnUrl }}">{{ company.abn }}</a></span>
+        <span>ACN {{ company.acn }}</span>
+        <span><a href="tel:{{ company.phoneLink }}">{{ company.phone | nbsp | safe }}</a></span>
+        <span><a href="mailto:{{ company.email }}">{{ company.email }}</a></span>
       </p>
     </div>
     <p class="site-footer__small">© {{ site.year }} {{ company.legalName }} · Made in Perth, Western Australia · No cookies, no tracking, no JavaScript.</p>

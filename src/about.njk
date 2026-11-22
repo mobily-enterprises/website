@@ -49,7 +49,7 @@ eleventyComputed:
       <p>Questions about Vibe64, Mercbot or our research? Write to us, or call.</p>
       <div class="btn-group" role="group" aria-label="Contact">
         <a class="btn btn--filled btn--l" href="mailto:{{ company.email }}">{% icon "mail" %}<span>{{ company.email }}</span></a>
-        <a class="btn btn--tonal btn--l" href="tel:{{ company.phoneLink }}">{% icon "chat" %}<span>{{ company.phone }}</span></a>
+        <a class="btn btn--tonal btn--l" href="tel:{{ company.phoneLink }}">{% icon "chat" %}<span>{{ company.phone | nbsp | safe }}</span></a>
       </div>
     </div>
     <dl class="company">
@@ -58,7 +58,7 @@ eleventyComputed:
       <div><dt>Based in</dt><dd>{{ company.locality }}, {{ company.regionName }}, Australia</dd></div>
       <div><dt>ABN</dt><dd><a href="{{ company.abnUrl }}">{{ company.abn }}</a></dd></div>
       <div><dt>ACN</dt><dd>{{ company.acn }}</dd></div>
-      <div><dt>Phone</dt><dd><a href="tel:{{ company.phoneLink }}">{{ company.phone }}</a></dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:{{ company.phoneLink }}">{{ company.phone | nbsp | safe }}</a></dd></div>
       <div><dt>Email</dt><dd><a href="mailto:{{ company.email }}">{{ company.email }}</a></dd></div>
       <div><dt>GitHub</dt><dd><a href="{{ site.github }}">github.com/mobily-enterprises</a></dd></div>
     </dl>

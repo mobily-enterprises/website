@@ -10,6 +10,12 @@ export default function (eleventyConfig) {
   eleventyConfig.addShortcode("cover", (kind, seed, place) => cover(kind, seed, place));
   eleventyConfig.addShortcode("logo", (id, size = 40) => logoSvg({ id, size }));
 
+  // JSON for a JSON-LD block, with "<" escaped so the data can never close its element.
+  eleventyConfig.addFilter("jsonLd", (value) => JSON.stringify(value).replace(/</g, "\\u003c"));
+
+  // Non-breaking spaces, so a phone number never wraps.
+  eleventyConfig.addFilter("nbsp", (value) => String(value).replace(/ /g, "&nbsp;"));
+
   // "2026-09-20" -> "20 September 2026"
   eleventyConfig.addFilter("longDate", (value) => {
     const d = new Date(`${value}T00:00:00Z`);
