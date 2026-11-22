@@ -52,7 +52,7 @@
 
   /* Page gutters follow the M3 window size classes. */
   --gutter: 16px;
-  --wrap: 1360px;
+  --wrap: 1200px;
   --section-gap: 72px;
 }
 
@@ -92,12 +92,12 @@ a { color: inherit; }
 button { font: inherit; color: inherit; }
 
 ::selection {
-  background: var(--md-sys-color-tertiary-container);
-  color: var(--md-sys-color-on-tertiary-container);
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
 }
 
 :focus-visible {
-  outline: 3px solid var(--md-sys-color-secondary);
+  outline: 3px solid var(--md-sys-color-primary);
   outline-offset: 3px;
   border-radius: var(--md-sys-shape-corner-small);
 }

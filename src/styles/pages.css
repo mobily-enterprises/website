@@ -14,147 +14,95 @@
 .art .art-s-accent { stroke: var(--k-art-accent); }
 .art .art-s-ink { stroke: var(--k-art-1); }
 
-/* ---------- Home hero ---------- */
-.hero {
-  display: grid;
-  gap: 48px;
-  align-items: center;
-  padding-block: 32px 8px;
-}
-@media (width >= 600px) { .hero { padding-top: 48px; } }
-@media (width >= 1100px) {
-  .hero {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 64px;
-    min-height: min(820px, calc(100svh - 72px));
-    padding-block: 40px 24px;
-  }
-}
-.hero__text { display: grid; justify-items: start; }
-.hero__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 36px;
-  padding: 0 16px 0 8px;
-  border-radius: var(--md-sys-shape-corner-full);
-  background: var(--md-sys-color-surface-container-high);
-  color: var(--md-sys-color-on-surface-variant);
-  font: var(--md-sys-typescale-label-large);
-}
-.hero__eyebrow-dot {
-  width: 22px;
-  height: 22px;
-  background: var(--md-sys-color-primary);
-  clip-path: var(--md-shape-cookie-9);
-}
+/* ---------- Home hero: the line, then the products themselves on one calm stage ---------- */
+.hero { padding-top: 48px; }
+@media (width >= 840px) { .hero { padding-top: 88px; } }
+.hero__text { display: grid; justify-items: start; gap: 20px; }
 .hero__title {
-  margin-top: 28px;
-  font-size: clamp(2.875rem, 1.1rem + 6vw, 7rem);
-  line-height: 0.98;
-  font-weight: 680;
-  font-stretch: 88%;
-  letter-spacing: -0.035em;
+  max-width: 14.5em;
+  font-size: clamp(2.5rem, 1.2rem + 3.6vw, 4.25rem);
+  line-height: 1.08;
+  font-weight: 520;
+  letter-spacing: -0.005em;
   text-wrap: balance;
 }
-.hl { white-space: nowrap; }
-.hl--people { color: var(--md-sys-color-primary); }
-.hl--ai { color: var(--md-sys-color-tertiary); }
-.hl__shape {
-  display: inline-block;
-  width: 0.62em;
-  height: 0.62em;
-  margin-right: 0.1em;
-  vertical-align: 0.02em;
-  background: currentColor;
-  clip-path: var(--md-shape-circle);
-}
-.hl--ai .hl__shape { clip-path: var(--md-shape-very-sunny); }
 .hero__lede {
-  margin-top: 28px;
-  max-width: 50ch;
-  font-size: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
-  line-height: 1.5;
-  letter-spacing: 0;
+  max-width: 40rem;
+  font: var(--md-sys-typescale-body-large);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
   color: var(--md-sys-color-on-surface-variant);
   text-wrap: pretty;
 }
-.hero .btn-group { margin-top: 36px; }
+.hero .btn-group { margin-top: 12px; }
 
-/* The collage: Material shapes on a 3 x 3 grid, each a theme colour role. */
-.hero__art {
-  container-type: inline-size;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  width: 100%;
-  max-width: 600px;
-  justify-self: center;
-}
-.tile {
-  --tile-shape: var(--md-shape-circle);
-  --tile-shape-hover: var(--md-shape-cookie-9);
+/* The stage: real product captures in framed windows, gently tilted and overlapping. */
+.stage {
   position: relative;
   isolation: isolate;
-  display: grid;
-  place-items: center;
-  aspect-ratio: 1;
-  color: var(--tile-fg);
+  overflow: hidden;
+  margin-top: 56px;
+  aspect-ratio: 16 / 11;
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  background: var(--md-sys-color-surface-container-low);
 }
-.tile::before {
-  content: "";
+@media (width >= 840px) {
+  .stage { margin-top: 72px; aspect-ratio: 16 / 8.2; border-radius: var(--md-sys-shape-corner-extra-extra-large); }
+}
+.frame {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--md-sys-shape-corner-large);
+  background: var(--md-sys-color-surface-container-lowest);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 18px 40px -12px rgb(0 0 0 / 0.22);
+}
+@media (width >= 840px) { .frame { border-radius: var(--md-sys-shape-corner-extra-large); } }
+.frame img { width: 100%; height: auto; }
+.frame__bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: clamp(22px, 3vw, 40px);
+  padding-inline: clamp(8px, 1.4vw, 16px);
+  background: var(--md-sys-color-surface-container-high);
+}
+.frame__dots { display: flex; gap: clamp(3px, 0.5vw, 6px); }
+.frame__dots i {
+  width: clamp(5px, 0.8vw, 10px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--md-sys-color-outline-variant);
+}
+.frame__url {
+  margin-inline: auto;
+  padding: 2px clamp(8px, 1.4vw, 16px);
+  border-radius: var(--md-sys-shape-corner-full);
+  background: var(--md-sys-color-surface-container-lowest);
+  color: var(--md-sys-color-on-surface-variant);
+  font: var(--md-sys-typescale-label-medium);
+  font-size: clamp(0.5625rem, 0.4rem + 0.5vw, 0.8125rem);
+  translate: calc(-1 * clamp(10px, 1.6vw, 20px)) 0;
+}
+.stage__vibe64 { top: 9%; left: 5%; width: 64%; rotate: -2deg; }
+.stage__mercbot { top: 34%; left: 38%; width: 52%; rotate: 1.5deg; z-index: 1; }
+.phone {
+  border-radius: 12.5% / 6.7%;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.1), 0 24px 48px -16px rgb(0 0 0 / 0.35);
+}
+.stage__phone { position: absolute; z-index: 2; top: 26%; right: 4%; width: 19%; height: auto; rotate: 4deg; }
+/* One small expressive shape, the site's motif, tucked behind the windows. */
+.stage__shape {
   position: absolute;
   z-index: -1;
-  inset: 0;
-  background: var(--tile-bg);
-  clip-path: var(--tile-shape);
-  transition: clip-path var(--md-sys-motion-spring-slow-spatial-duration) var(--md-sys-motion-spring-slow-spatial);
-}
-@media (hover: hover) { .tile:hover::before { clip-path: var(--tile-shape-hover); } }
-.tile__icon { display: grid; }
-.tile__icon .icon { width: 13cqi; height: 13cqi; }
-.tile--sunny {
-  grid-column: 1 / span 2;
-  grid-row: 1 / span 2;
-  --tile-bg: var(--md-sys-color-primary);
-  --tile-fg: var(--md-sys-color-on-primary);
-  --tile-shape: var(--md-shape-sunny);
-  --tile-shape-hover: var(--md-shape-very-sunny);
-}
-.tile--sunny .tile__icon .icon { width: 24cqi; height: 24cqi; }
-.tile--circle {
-  --tile-bg: var(--md-sys-color-tertiary-container);
-  --tile-fg: var(--md-sys-color-on-tertiary-container);
-  --tile-shape: var(--md-shape-circle);
-  --tile-shape-hover: var(--md-shape-cookie-12);
-}
-.tile--clover {
-  --tile-bg: var(--k-container);
-  --tile-fg: var(--k-on-container);
-  --tile-shape: var(--md-shape-clover-4);
-  --tile-shape-hover: var(--md-shape-flower);
-}
-.tile--pill {
-  grid-column: 1 / span 2;
-  aspect-ratio: auto;
-  display: flex;
-  justify-content: flex-start;
-  gap: 4cqi;
-  padding-inline: 7cqi;
-  --tile-bg: var(--k-container);
-  --tile-fg: var(--k-on-container);
-}
-.tile--pill::before { clip-path: none; border-radius: var(--md-sys-shape-corner-full); }
-.tile__typing { display: flex; gap: 2.4cqi; }
-.tile__typing i {
-  width: 3.6cqi;
-  height: 3.6cqi;
-  border-radius: 50%;
-  background: currentColor;
-}
-.tile--morph {
-  --tile-bg: var(--md-sys-color-secondary-container);
-  --tile-shape: var(--md-shape-cookie-12);
+  top: 12%;
+  right: 2%;
+  width: 13%;
+  aspect-ratio: 1;
+  background: var(--md-sys-color-primary-container);
+  clip-path: var(--md-shape-cookie-9);
 }
 
 /* ---------- Product and section page headers ---------- */
@@ -185,16 +133,15 @@
 @media (width >= 1200px) { .page-hero__text { padding: 72px 72px 72px 64px; } }
 .page-hero .overline { color: inherit; opacity: 0.85; }
 .page-hero__title {
-  font-size: clamp(3.5rem, 1.6rem + 7vw, 8.75rem);
-  line-height: 0.9;
-  font-weight: 720;
-  font-stretch: 86%;
-  letter-spacing: -0.045em;
+  font-size: clamp(2.5rem, 1.8rem + 2.2vw, 3.5625rem);
+  line-height: 1.1;
+  font-weight: 520;
+  letter-spacing: -0.005em;
 }
 .page-hero__lede {
   max-width: 46ch;
-  font-size: clamp(1.125rem, 1rem + 0.35vw, 1.375rem);
-  line-height: 1.5;
+  font-size: 1.125rem;
+  line-height: 1.6;
   letter-spacing: 0;
   text-wrap: pretty;
 }
@@ -227,15 +174,13 @@
 .lost__shape {
   display: grid;
   place-items: center;
-  width: min(72vw, 340px);
+  width: min(56vw, 240px);
   aspect-ratio: 1;
   background: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
   clip-path: var(--md-shape-cookie-12);
 }
 .lost__shape span {
-  font-size: clamp(4rem, 3rem + 6vw, 6.5rem);
-  font-weight: 800;
-  font-stretch: 80%;
-  letter-spacing: -0.04em;
+  font: var(--md-sys-typescale-display-large);
+  font-weight: 520;
 }

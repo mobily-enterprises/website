@@ -1,0 +1,68 @@
+/* Motion: page-level motion, all in CSS. Hover and press springs live with their components.
+   Everything here is off when the person asks for reduced motion, and pages read the same in
+   browsers without scroll-driven animations or view transitions. */
+
+@view-transition { navigation: auto; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Cross-page navigation: the top bar stays put, a product card grows into its page header. */
+  .top-bar { view-transition-name: top-bar; }
+  .vt-vibe64 { view-transition-name: vt-vibe64; }
+  .vt-mercbot { view-transition-name: vt-mercbot; }
+  .vt-research { view-transition-name: vt-research; }
+  ::view-transition-group(*) {
+    animation-duration: var(--md-sys-motion-spring-default-spatial-duration);
+    animation-timing-function: var(--md-sys-motion-spring-default-spatial);
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation-duration: 220ms; }
+
+  /* The hero's products settle onto the stage. */
+  .stage .frame,
+  .stage .phone { animation: settle var(--md-sys-motion-spring-slow-spatial-duration) var(--md-sys-motion-spring-slow-spatial) both; }
+  .stage__mercbot { animation-delay: 90ms; }
+  .stage__phone { animation-delay: 180ms; }
+  .stage__shape { animation: spin 60s linear infinite; }
+}
+
+@keyframes settle { from { opacity: 0; translate: 0 40px; } }
+@keyframes spin { to { rotate: 1turn; } }
+
+/* Scroll-driven: cards and sections rise into place as they enter, and the top bar lifts once the
+   page scrolls. Only where the browser supports scroll timelines. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .section__head,
+    .products > .card,
+    .feature,
+    .edition,
+    .area,
+    .entry-grid__item,
+    .diary-door,
+    .cta__inner,
+    .contact,
+    .oss {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    .cta__shape {
+      animation: drift linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+    .top-bar {
+      animation: raise linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 96px;
+    }
+  }
+}
+@keyframes rise { from { opacity: 0; translate: 0 56px; scale: 0.96; } }
+@keyframes drift { from { rotate: -40deg; scale: 0.8; } to { rotate: 40deg; scale: 1.1; } }
+@keyframes raise {
+  to {
+    background: var(--md-sys-color-surface-container);
+    box-shadow: 0 1px 0 var(--md-sys-color-outline-variant);
+  }
+}

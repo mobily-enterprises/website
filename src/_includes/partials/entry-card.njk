@@ -1,6 +1,5 @@
 <li class="entry-grid__item">
-  <article class="card card--entry kind-{{ e.kind }}">
-    <div class="card__art card__art--short">{% cover e.kind, e.id, "center" %}</div>
+  <article class="card card--entry">
     <div class="card__body">
       <p class="card__meta"><span class="card__id">{{ e.id | e }}</span>{% if e.projectLabel %}<span>{{ e.projectLabel | e }}</span>{% endif %}</p>
       <h3 class="card__title card__title--s"><a class="card__link" href="{{ e.url }}">{{ e.title | e }}</a></h3>
@@ -8,7 +7,7 @@
       <p class="card__text">{{ e.summary | e }}</p>
       {%- endif %}
       <p class="card__foot">
-        {%- if e.result %}<span class="chip chip--result">Result: {{ e.result | e }}</span>{% endif -%}
+        {%- if e.result %}<span class="chip">Result: {{ e.result | e }}</span>{% endif -%}
         {%- if e.date %}<span class="card__date">{{ e.date | longDate }}</span>{% endif -%}
       </p>
     </div>

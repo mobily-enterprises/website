@@ -4,6 +4,7 @@ import { writeRasters } from "./lib/raster.js";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/fonts": "assets/fonts" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/products": "assets/products" });
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
 
   eleventyConfig.addShortcode("icon", (name, label) => icon(name, label));
