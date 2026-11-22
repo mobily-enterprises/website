@@ -8,7 +8,7 @@
 // Exits 1 when anything fails.
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
-import { contrast, KIND_TEXT_PAIRS, kindRoles, KINDS, PROJECT_KINDS, roles, TEXT_PAIRS } from "../lib/colour.js";
+import { contrast, roles, TEXT_PAIRS } from "../lib/colour.js";
 
 const SITE = path.resolve("_site");
 const ORIGIN = "https://mobilyenterprises.com";
@@ -134,10 +134,6 @@ for (const [label, isDark, level] of schemes) {
     if (ratio < 4.5) problem(`contrast ${label}: ${name} is ${ratio.toFixed(2)}:1, below 4.5:1`);
   };
   for (const [fg, bg] of TEXT_PAIRS) test(r[fg], r[bg], `${fg} on ${bg}`);
-  for (const [kind, { source }] of Object.entries({ ...KINDS, ...PROJECT_KINDS })) {
-    const k = { ...kindRoles(source, isDark, { contrast: level }), surface: r.surface };
-    for (const [fg, bg] of KIND_TEXT_PAIRS) test(k[fg], k[bg], `${kind} ${fg} on ${bg}`);
-  }
   lowest.push(`${label}: lowest ${min.toFixed(2)}:1 (${minPair})`);
 }
 

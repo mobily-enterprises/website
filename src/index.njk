@@ -16,18 +16,9 @@ description: Mobily Enterprises makes Vibe64, an AI coding editor, and Mercbot, 
   </div>
   <div class="stage">
     <span class="stage__shape" aria-hidden="true"></span>
-    <figure class="frame stage__vibe64">
-      <div class="frame__bar" aria-hidden="true"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">vibe64.dev</span></div>
-      <picture>
-        <source srcset="/assets/products/vibe64-dark.webp" media="(prefers-color-scheme: dark)">
-        <img src="/assets/products/vibe64-light.webp" width="1440" height="900" alt="The vibe64.dev home page: your own server in the cloud, with an AI coding workspace already set up.">
-      </picture>
-    </figure>
-    <figure class="frame stage__mercbot">
-      <div class="frame__bar" aria-hidden="true"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">mercbot.ai</span></div>
-      <img src="/assets/products/mercbot-home.webp" width="1464" height="840" alt="A Mercbot home: a list of bots, each with its latest news, beside a chat with a new bot.">
-    </figure>
-    <img class="phone stage__phone" src="/assets/products/mercbot-phone.webp" width="480" height="900" alt="Mercbot on a phone: a bot plans the week's dinners and waits for a yes before sending them to the family chat.">
+    {% frame "vibe64", "stage__vibe64" %}
+    {% frame "mercbot", "stage__mercbot" %}
+    {% shot "mercbot-phone", "phone stage__phone" %}
   </div>
 </section>
 
@@ -44,12 +35,7 @@ description: Mobily Enterprises makes Vibe64, an AI coding editor, and Mercbot, 
         <p class="card__text">Work with AI agents such as Claude Code, Codex and OpenCode in sessions, each with a live Preview, a plan with checklists and a Save to GitHub.</p>
         <ul class="chips"><li class="chip">Open-source editor</li><li class="chip">Hosted at vibe64.dev</li></ul>
       </div>
-      <div class="card__media">
-        <picture>
-          <source srcset="/assets/products/vibe64-dark.webp" media="(prefers-color-scheme: dark)">
-          <img src="/assets/products/vibe64-light.webp" width="1440" height="900" alt="" loading="lazy">
-        </picture>
-      </div>
+      <div class="card__media">{% shot "vibe64", "", true %}</div>
       <span class="card__go" aria-hidden="true">{% icon "arrow" %}</span>
     </article>
     <article class="card card--product vt-mercbot">
@@ -59,7 +45,7 @@ description: Mobily Enterprises makes Vibe64, an AI coding editor, and Mercbot, 
         <p class="card__text">A home where people and AI bots live together: rooms, private chats with a bot, and bots made from templates.</p>
         <ul class="chips"><li class="chip">Hosted at mercbot.ai</li><li class="chip">Open-source single-user edition</li></ul>
       </div>
-      <div class="card__media"><img src="/assets/products/mercbot-home.webp" width="1464" height="840" alt="" loading="lazy"></div>
+      <div class="card__media">{% shot "mercbot", "", true %}</div>
       <span class="card__go" aria-hidden="true">{% icon "arrow" %}</span>
     </article>
     <article class="card card--product card--wide vt-research">
@@ -69,7 +55,7 @@ description: Mobily Enterprises makes Vibe64, an AI coding editor, and Mercbot, 
         <p class="card__text">We study how AI agents build software: how reliably they investigate, how source code can become plain language, and how a codebase can become a city you explore.</p>
         <ul class="chips"><li class="chip">Agent reliability</li><li class="chip">Program source</li><li class="chip">File City</li></ul>
       </div>
-      <div class="card__media"><img src="/assets/products/research-diary.webp" width="1440" height="900" alt="" loading="lazy"></div>
+      <div class="card__media">{% shot "research", "", true %}</div>
       <span class="card__go" aria-hidden="true">{% icon "arrow" %}</span>
     </article>
   </div>

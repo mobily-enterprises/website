@@ -23,14 +23,22 @@ workflow also runs once a day, so the Research page picks up new research diary 
 Every colour comes from one seed. Open `lib/colour.js` and change `SEED`:
 
 ```js
-export const SEED = "#B3126F";
+export const SEED = "#1B6EF3";
 ```
 
 The next build regenerates every Material 3 colour role (light, dark and high contrast), the
-artwork, the logo, the favicon, the icons and the share image (`og.png`) from it, using Google's
-`@material/material-color-utilities`. Product colours (Vibe64's blue, Mercbot's orange, the
-research colours) are in `KINDS` and `PROJECT_KINDS` in the same file; they are harmonised toward
-the seed. `npm run check` fails if any text colour pair drops below WCAG AA.
+logo, the favicon and the share image (`og.png`) from it, using Google's
+`@material/material-color-utilities` in Material 3's Fidelity style: the seed's own colour in the
+primary roles, near-neutral surfaces. Today's seed is a vivid blue of the same hue as the blue
+vibe64.dev and mercbot.ai share. `npm run check` fails if any text colour pair drops below WCAG AA.
+
+## Product pictures
+
+The pictures of Vibe64, Mercbot and the research diary are screenshots of vibe64.dev, mercbot.ai
+and research.mobilyenterprises.com, taken headless, in `src/assets/products/` (WebP). Their
+addresses, sizes and descriptions are in `lib/shots.js`; pages show them with
+`{% frame "vibe64" %}` (in a window frame) or `{% shot "vibe64" %}` (the picture alone). To refresh
+one, take a new screenshot at the same size and replace the file.
 
 ## Research
 
@@ -60,7 +68,8 @@ from there, so a change is one line.
   with the generated tokens into one stylesheet, `/assets/site.css`.
 - `lib/colour.js`: the seed and every colour. `lib/shapes.js`: the expressive shapes (as
   clip-path polygons that morph into each other). `lib/motion.js`: spring motion as CSS
-  `linear()` curves. `lib/art.js`: the artwork, logo and share image, drawn in code.
+  `linear()` curves. `lib/art.js`: the logo and the share image, drawn in code.
+  `lib/shots.js`: the product pictures.
   `lib/raster.js`: the PNG icons and share image. `lib/icons.js`: the icons.
 - `src/assets/fonts/`: Roboto Flex (variable, Latin subset), under the SIL Open Font Licence
   (`OFL.txt`). No fonts are loaded from anywhere else.

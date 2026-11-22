@@ -4,7 +4,6 @@
 // the build carries on with no records and the page shows only its "Read the research diary" button.
 // DIARY_OFFLINE=1 skips the request (to build, or check, the fallback).
 import { parse } from "yaml";
-import { PROJECT_KINDS } from "../../lib/colour.js";
 import site from "./site.js";
 
 const API = "https://api.github.com/repos/mobily-enterprises/research-diary/contents/_research";
@@ -38,6 +37,13 @@ function frontMatter(text) {
   return parse(m[1]) ?? {};
 }
 
+// The diary's projects, by the slug its records name.
+const PROJECTS = {
+  "agent-reliability": "Agent reliability",
+  "file-city": "File City",
+  "program-source": "Program source",
+};
+
 const str = (v) => (typeof v === "string" && v.trim() ? v.trim() : "");
 
 async function record(file) {
@@ -53,8 +59,7 @@ async function record(file) {
     title,
     summary: str(fm.summary),
     project,
-    projectLabel: PROJECT_KINDS[project]?.label ?? "",
-    kind: PROJECT_KINDS[project] ? project : "research",
+    projectLabel: PROJECTS[project] ?? "",
     result: RESULTS[str(fm.result).toLowerCase()] ?? "",
     date: str(fm.ended) || str(fm.started),
     url: new URL(`research/${slug(file.name)}/`, site.diaryUrl).href,

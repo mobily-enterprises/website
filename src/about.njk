@@ -7,14 +7,12 @@ eleventyComputed:
   description: "Mobily Enterprises is an Australian software company in {{ company.locality }}, {{ company.regionName }}, operated by {{ company.legalName }}. Contact us at {{ company.email }}."
 ---
 <section class="page-hero wrap" aria-labelledby="page-title">
-  <div class="page-hero__panel page-hero__panel--brand">
-    <div class="page-hero__text">
-      <p class="overline">About</p>
-      <h1 class="page-hero__title" id="page-title">About us</h1>
-      <p class="page-hero__lede">Mobily Enterprises is an Australian software company, made in Perth, Western Australia. We make Vibe64, an AI coding editor, and Mercbot, a home for people and AI bots, and we do AI research.</p>
-    </div>
-    <div class="page-hero__art page-hero__art--logo" aria-hidden="true">{% logo "logo-about", 240 %}</div>
+  <div class="page-hero__text">
+    <p class="overline">About</p>
+    <h1 class="page-hero__title" id="page-title">About us</h1>
+    <p class="page-hero__lede">Mobily Enterprises is an Australian software company, made in Perth, Western Australia. We make Vibe64, an AI coding editor, and Mercbot, a home for people and AI bots, and we do AI research.</p>
   </div>
+  <div class="page-hero__media page-hero__media--logo" aria-hidden="true">{% logo "logo-about", 200 %}</div>
 </section>
 
 <section class="section wrap" aria-labelledby="work-title">
@@ -49,7 +47,7 @@ eleventyComputed:
       <p>Questions about Vibe64, Mercbot or our research? Write to us, or call.</p>
       <div class="btn-group" role="group" aria-label="Contact">
         <a class="btn btn--filled btn--m" href="mailto:{{ company.email }}">{% icon "mail" %}<span>{{ company.email }}</span></a>
-        <a class="btn btn--tonal btn--m" href="tel:{{ company.phoneLink }}">{% icon "chat" %}<span>{{ company.phone | nbsp | safe }}</span></a>
+        <a class="btn btn--outlined btn--m" href="tel:{{ company.phoneLink }}">{% icon "phone" %}<span>{{ company.phone | nbsp | safe }}</span></a>
       </div>
     </div>
     <dl class="company">

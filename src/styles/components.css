@@ -56,7 +56,6 @@
 .btn--filled { --btn-bg: var(--md-sys-color-primary); --btn-fg: var(--md-sys-color-on-primary); }
 .btn--tonal { --btn-bg: var(--md-sys-color-secondary-container); --btn-fg: var(--md-sys-color-on-secondary-container); }
 .btn--outlined { --btn-border: var(--md-sys-color-outline-variant); --btn-fg: var(--md-sys-color-on-surface-variant); }
-.btn--kind { --btn-bg: var(--k-color); --btn-fg: var(--k-on-color); }
 
 /* ---------- Standard button group: the pressed button widens, its neighbours make room. ---------- */
 .btn-group {
@@ -124,7 +123,7 @@
   place-items: center;
   width: 48px;
   height: 48px;
-  color: var(--k-on-container, var(--md-sys-color-on-primary-container));
+  color: var(--md-sys-color-on-primary-container);
   position: relative;
   isolation: isolate;
 }
@@ -133,7 +132,7 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: var(--k-container, var(--md-sys-color-primary-container));
+  background: var(--md-sys-color-primary-container);
   clip-path: var(--badge-shape);
   transition:
     clip-path var(--md-sys-motion-spring-default-spatial-duration) var(--md-sys-motion-spring-default-spatial),
@@ -157,8 +156,8 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: var(--card-radius);
-  background: var(--k-container, var(--md-sys-color-surface-container-low));
-  color: var(--k-on-container, var(--md-sys-color-on-surface));
+  background: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface);
   transition:
     border-radius var(--md-sys-motion-spring-default-spatial-duration) var(--md-sys-motion-spring-default-spatial),
     scale var(--md-sys-motion-spring-fast-spatial-duration) var(--md-sys-motion-spring-fast-spatial);
@@ -193,19 +192,6 @@
   z-index: 3;
 }
 .card__link:focus-visible { outline: none; }
-
-.card__art {
-  display: block;
-  aspect-ratio: 2 / 1;
-  overflow: hidden;
-}
-.card__art .art {
-  width: 100%;
-  height: 100%;
-  transition: scale var(--md-sys-motion-spring-slow-spatial-duration) var(--md-sys-motion-spring-slow-spatial);
-}
-.card:hover .card__art .art { scale: 1.05; }
-.card__art--short { aspect-ratio: 5 / 2; }
 
 .card__body {
   display: flex;
@@ -254,7 +240,7 @@
   place-items: center;
   width: 48px;
   height: 48px;
-  color: var(--k-on-color, var(--md-sys-color-on-primary));
+  color: var(--md-sys-color-on-primary);
   isolation: isolate;
 }
 .card__go::before {
@@ -262,7 +248,7 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: var(--k-color, var(--md-sys-color-primary));
+  background: var(--md-sys-color-primary);
   clip-path: var(--md-shape-circle);
   transition:
     clip-path var(--md-sys-motion-spring-default-spatial-duration) var(--md-sys-motion-spring-default-spatial),

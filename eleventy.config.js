@@ -1,6 +1,7 @@
-import { cover, logoSvg } from "./lib/art.js";
+import { logoSvg } from "./lib/art.js";
 import { icon } from "./lib/icons.js";
 import { writeRasters } from "./lib/raster.js";
+import { frame, shot } from "./lib/shots.js";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/fonts": "assets/fonts" });
@@ -8,7 +9,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
 
   eleventyConfig.addShortcode("icon", (name, label) => icon(name, label));
-  eleventyConfig.addShortcode("cover", (kind, seed, place) => cover(kind, seed, place));
+  eleventyConfig.addShortcode("frame", (key, cls) => frame(key, cls));
+  eleventyConfig.addShortcode("shot", (key, cls, decorative) => shot(key, cls, decorative));
   eleventyConfig.addShortcode("logo", (id, size = 40) => logoSvg({ id, size }));
 
   // JSON for a JSON-LD block, with "<" escaped so the data can never close its element.
